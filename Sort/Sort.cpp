@@ -16,6 +16,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //merge_sort(a, len);
     //quick_sort(a, len);
     //heap_sort(a, len);
-    testPriority();
+    //testPriority();
+    counting_sort(a, len);
 	return 0;
 }

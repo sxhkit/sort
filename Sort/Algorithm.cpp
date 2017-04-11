@@ -224,3 +224,35 @@ void heap_sort(int a[], int size)
     hsort(a, size);
     printf_array(a, size);
 }
+
+void counting_sort(int a[], int size) {
+    int k = 20;          
+    int * c = new int[k]; //  k = max( a[])  本案例中最大为12 所以20 足够了
+    int * b = new int[size];
+    for (int i = 0; i < k;i++) {
+        c[i] = 0;
+    }
+
+    for (int j = 0; j < size;j++)
+    {
+        c[a[j]] = c[a[j]] + 1;
+    }
+
+    for (int q = 1; q < k;q++)
+    {
+        c[q] = c[q] + c[q - 1];
+    }
+
+    for (int p = size - 1; p >= 0;p--)
+    {
+        b[c[a[p]] - 1] = a[p];
+        c[a[p]] = c[a[p]] - 1; // 此目的为了如果存在重复的同样能够以此排列
+    }
+    for (int t = 0; t < size;t++)
+    {
+        a[t] = b[t];
+    }
+    delete[]b;
+    delete[]c;
+    printf_array(a, size);
+}
