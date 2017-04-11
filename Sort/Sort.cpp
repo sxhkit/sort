@@ -13,6 +13,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //bubble_sort(a, len);
     //select_sort(a, len);
     //merge_sort(a, len);
-    quick_sort(a, len);
+    //quick_sort(a, len);
+    heap_sort(a, len);
 	return 0;
 }

@@ -10,6 +10,7 @@ void printf_array(int a[], int size)
             printf(",");
         }
     }
+    printf("\n");
 }
 /*
 *   insert sort  asc
@@ -171,5 +172,55 @@ void qsort(int a[], int low, int high)
 void quick_sort(int a[], int size){
 
     qsort(a, 0, size - 1);
+    printf_array(a, size);
+}
+
+void modify_heap(int a[], int i, int size)
+{
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+    if (left < size && a[i] < a[left])
+    {
+        largest = left;
+    }
+
+    if (right <  size && a[right] > a[largest])
+    {
+        largest = right;
+    }
+    if (largest != i)
+    {
+        int max = a[largest];
+        a[largest] = a[i];
+        a[i] = max;
+        modify_heap(a, largest, size);
+    }
+}
+
+void build_max_heap(int a[], int size)
+{
+    for (int i = size / 2 - 1; i >= 0;i--)
+    {
+        modify_heap(a, i, size);
+    }
+}
+
+void hsort(int a[],int size )
+{
+    build_max_heap(a, size);
+    for (int i = size - 1; i >= 0;--i)
+    {
+        int largest = a[0];
+        a[0] = a[i];
+        a[i] = largest;
+        modify_heap(a, 0, i);
+        printf_array(a, size);
+    }
+}
+
+void heap_sort(int a[], int size)
+{
+    hsort(a, size);
     printf_array(a, size);
 }
