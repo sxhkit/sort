@@ -3,6 +3,7 @@
 
 #include <tchar.h>
 #include "Algorithm.h"
+#include "PriorityQueue.h"
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -14,6 +15,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //select_sort(a, len);
     //merge_sort(a, len);
     //quick_sort(a, len);
-    heap_sort(a, len);
+    //heap_sort(a, len);
+    testPriority();
 	return 0;
 }
