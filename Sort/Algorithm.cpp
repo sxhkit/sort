@@ -256,3 +256,84 @@ void counting_sort(int a[], int size) {
     delete[]c;
     printf_array(a, size);
 }
+
+int getIndex(int num, int pos)
+{
+    int index = 0;
+    if (pos > 1)
+    {
+        int t = num / ((pos - 1) * 10);
+        index = t % 10;
+    }
+    else {
+        index = num % 10;
+    }
+    return index;
+}
+
+void getresult(int *arr[],int a[],int size)
+{
+    int k = 0;
+    for (int i = 0; i < 10;i++)
+    {
+        for (int j = 0; j < arr[11][i];j++)
+        {
+            a[k++] = *(arr[i] + j);
+        }
+    }
+}
+
+int  getLoopTimes(int a[], int size)
+{
+    int max = a[0];
+    for (int i = 1; i < size;i++)
+    {
+        if (a[i] > max)
+        {
+            max = a[i];
+        }
+    }
+
+    int loop = 1;
+    while (max /10)
+    {
+        loop++;
+        max = max / 10;
+    }
+    return loop;
+}
+
+/*
+* »ùÊýÅÅÐò asc 
+*/
+void radix_sort(int a[], int size)
+{
+    int **arr;
+    arr = new int *[11];
+
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = new int[size];
+    }
+    int index = 1;
+    arr[11][0] = 0;
+    int loop = getLoopTimes(a, size);
+    while (loop-- > 0)
+    {
+        for (int k = 0; k < size;k++)
+        {
+            arr[11][k] = { 0 };
+        }
+        for (int i = 0; i < size;i++)
+        {
+            int pos = getIndex(a[i], index);
+            *(arr[pos] + arr[11][pos] )= a[i];
+            arr[11][pos] ++;
+        }
+        index++;
+        getresult(arr, a,size);
+    }
+    printf_array(a, size);
+
+    
+}

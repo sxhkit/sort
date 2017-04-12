@@ -7,7 +7,7 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-    int a[] = { 2, 5, 3, 9, 7, 12, 8,6 };
+    int a[] = { 2, 5, 3, 9, 7, 12, 8,6 ,13,47,22,38};
     int len = sizeof(a) / sizeof(int);
     //insert_sort(a,sizeof(a) / sizeof(int));
 
@@ -17,6 +17,7 @@ int _tmain(int argc, _TCHAR* argv[])
     //quick_sort(a, len);
     //heap_sort(a, len);
     //testPriority();
-    counting_sort(a, len);
+    //counting_sort(a, len);
+    radix_sort(a, len);
 	return 0;
 }
