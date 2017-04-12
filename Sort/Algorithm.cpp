@@ -12,6 +12,7 @@ void printf_array(int a[], int size)
     }
     printf("\n");
 }
+/******************************************************************************************/
 /*
 *   insert sort  asc
 */
@@ -42,6 +43,7 @@ void insert_sort(int a[],int size)
 }
 
 
+/******************************************************************************************/
 /*
 *      bubble sort asc
 */
@@ -62,6 +64,7 @@ void bubble_sort(int a[], int size)
     printf_array(a, size);
 }
 
+/******************************************************************************************/
 /*
 *  select sort 
 */
@@ -89,6 +92,7 @@ void select_sort(int a[], int size)
     printf_array(a, size);
 }
 
+/******************************************************************************************/
 void merge_array(int a[],int b[],int start,int mid,int end)
 {
     int i = start;
@@ -140,6 +144,7 @@ void merge_sort(int a[], int size) {
     delete b;
 }
 
+/******************************************************************************************/
 void qsort(int a[], int low, int high)
 {
     if (low >= high)
@@ -175,6 +180,7 @@ void quick_sort(int a[], int size){
     printf_array(a, size);
 }
 
+/******************************************************************************************/
 void modify_heap(int a[], int i, int size)
 {
     int largest = i;
@@ -225,6 +231,7 @@ void heap_sort(int a[], int size)
     printf_array(a, size);
 }
 
+/******************************************************************************************/
 void counting_sort(int a[], int size) {
     int k = 20;          
     int * c = new int[k]; //  k = max( a[])  本案例中最大为12 所以20 足够了
@@ -257,6 +264,7 @@ void counting_sort(int a[], int size) {
     printf_array(a, size);
 }
 
+/******************************************************************************************/
 int getIndex(int num, int pos)
 {
     int index = 0;
@@ -334,6 +342,4 @@ void radix_sort(int a[], int size)
         getresult(arr, a,size);
     }
     printf_array(a, size);
-
-    
 }
